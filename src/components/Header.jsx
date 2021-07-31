@@ -11,7 +11,7 @@ const Header = ({ user, setUser }) => {
   // useEffect()
 
   // criar modulo para as functions
-  
+
   function abrirModalCriarConta(e) {
     e.preventDefault();
     let modal = document.querySelector('.modalCriarConta')
@@ -23,7 +23,7 @@ const Header = ({ user, setUser }) => {
     let modal = document.querySelector('.modalCriarConta')
     modal.style.display = "none"
   }
-  
+
   // criar conta firebase
   function criarConta(e) {
     e.preventDefault();
@@ -77,25 +77,25 @@ const Header = ({ user, setUser }) => {
 
     const uploadTask = storage.ref(`images/${file.name}`).put(file)
 
-    uploadTask.on('state_changed', (snapshot)=>{
-      const progress = Math.round(snapshot.bytesTransferred/snapshot.totalBytes) * 100;
+    uploadTask.on('state_changed', (snapshot) => {
+      const progress = Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       setProgress(progress)
-    }, (error)=>{
+    }, (error) => {
 
-    }, ()=>{
+    }, () => {
       storage.ref('images').child(file.name).getDownloadURL()
-      .then((url)=>{
-        db.collection('posts').add({
-          titulo: tituloPost,
-          image: url,
-          userName: user,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        .then((url) => {
+          db.collection('posts').add({
+            titulo: tituloPost,
+            image: url,
+            userName: user,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          })
+          setProgress(0)
+          setFile(null)
+          alert('upload realizado com sucesso')
+          document.getElementById('form-upload').reset()
         })
-        setProgress(0)
-        setFile(null)
-        alert('upload realizado com sucesso')
-        document.getElementById('form-upload').reset()
-      })
     })
 
   }
@@ -121,7 +121,7 @@ const Header = ({ user, setUser }) => {
 
 
       {/* Fazer upload */}
-      
+
       <div className="modalUpload" >
         <div className="formUpload">
           <div onClick={e => fecharModalUpload(e)} className="close-modal-criar">X</div>
@@ -157,8 +157,8 @@ const Header = ({ user, setUser }) => {
               <div className="btn_criarConta">
                 <a onClick={e => abrirModalCriarConta(e)} href="#">Criar conta!</a>
               </div>{/* btn_criarConta */}
-            
-            {/* header-loginForm */}
+
+              {/* header-loginForm */}
             </div>
         }
       </div>{/* center */}
