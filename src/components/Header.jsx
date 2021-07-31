@@ -10,6 +10,7 @@ const Header = ({ user, setUser }) => {
 
   // useEffect()
 
+  
   function abrirModalCriarConta(e) {
     e.preventDefault();
     let modal = document.querySelector('.modalCriarConta')
@@ -21,10 +22,10 @@ const Header = ({ user, setUser }) => {
     let modal = document.querySelector('.modalCriarConta')
     modal.style.display = "none"
   }
-
+  
+  // criar conta firebase
   function criarConta(e) {
     e.preventDefault();
-    // criar conta firebase
 
     const email = document.querySelector('#email-cadastro').value
     const username = document.querySelector('#username-cadastro').value
@@ -72,7 +73,6 @@ const Header = ({ user, setUser }) => {
   function uploadPost(e) {
     e.preventDefault()
     let tituloPost = document.querySelector('#titulo-upload').value
-    let progressEl = document.querySelector('#progress-upload')
 
     const uploadTask = storage.ref(`images/${file.name}`).put(file)
 
