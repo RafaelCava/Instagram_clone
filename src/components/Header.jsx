@@ -10,6 +10,7 @@ const Header = ({ user, setUser }) => {
 
   // useEffect()
 
+  // criar modulo para as functions
   
   function abrirModalCriarConta(e) {
     e.preventDefault();
