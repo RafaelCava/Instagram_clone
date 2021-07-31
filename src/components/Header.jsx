@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
-import { auth, db } from '../firebase'
+import { auth, db, storage } from '../firebase'
+import firebase from 'firebase';
 
 const Header = ({ user, setUser }) => {
 
   const [progress, setProgress] = useState(0);
 
   const [file, setFile] = useState(null);
+
+  // useEffect()
 
   function abrirModalCriarConta(e) {
     e.preventDefault();
@@ -68,6 +71,32 @@ const Header = ({ user, setUser }) => {
 
   function uploadPost(e) {
     e.preventDefault()
+    let tituloPost = document.querySelector('#titulo-upload').value
+    let progressEl = document.querySelector('#progress-upload')
+
+    const uploadTask = storage.ref(`images/${file.name}`).put(file)
+
+    uploadTask.on('state_changed', (snapshot)=>{
+      const progress = Math.round(snapshot.bytesTransferred/snapshot.totalBytes) * 100;
+      setProgress(progress)
+    }, (error)=>{
+
+    }, ()=>{
+      storage.ref('images').child(file.name).getDownloadURL()
+      .then((url)=>{
+        db.collection('posts').add({
+          titulo: tituloPost,
+          image: url,
+          userName: user,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        setProgress(0)
+        setFile(null)
+        alert('upload realizado com sucesso')
+        document.getElementById('form-upload').reset()
+      })
+    })
+
   }
 
   return (
@@ -96,11 +125,11 @@ const Header = ({ user, setUser }) => {
         <div className="formUpload">
           <div onClick={e => fecharModalUpload(e)} className="close-modal-criar">X</div>
           <h2>Fazer Upload</h2>
-          <form onSubmit={(e) => uploadPost(e)}>
-            <progress value={progress}></progress>
+          <form id='form-upload' onSubmit={(e) => uploadPost(e)}>
+            <progress id='progress-upload' value={progress}></progress>
             <input id='titulo-upload' type="text" placeholder="Nome da sua Foto.." />
             <input onChange={e => setFile(e.target.files[0])} type="file" name='file' required />
-            <input type="submit" value="Criar Conta!" />
+            <input type="submit" value="Postar no instagram!" />
           </form>
         </div>{/* formUpload */}
       </div>{/* modalUpload */}
