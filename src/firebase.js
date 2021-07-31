@@ -9,9 +9,9 @@ const firebaseConfig = {
   measurementId: "G-21YHG8HTRG"
 };
 
-const db = firebase.firestore()
-const auth = firebase.auth()
-const storage = firebase.storage()
-const functions = firebase.functions()
+const db = firebase.firestore();
+const auth = firebase.auth();
+const storage = firebase.storage();
+const functions = firebase.functions();
 
 export { db, auth, storage, functions }

@@ -79,7 +79,14 @@ body{
   text-decoration: none;
 }
 
+/* TODO trocar display none por classe none ao terminar o projeto */
+.none{
+  display: none;
+}
+
+
 .modalCriarConta{
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -113,4 +120,18 @@ body{
   background-color: #0095f6;
   cursor: pointer;
   color: #fff;
+}
+
+.close-modal-criar{
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #fff;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #0095f6;
 }

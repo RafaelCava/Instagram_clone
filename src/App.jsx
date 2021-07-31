@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from './components/Header'
+// import { db } from './firebase'
 
 function App() {
   const [user, setUser] = useState(null)
