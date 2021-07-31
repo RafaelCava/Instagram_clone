@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import { auth, db } from '../firebase'
+import { auth, db } from '../firebase'
 
 const Header = ({ user }) => {
 
@@ -9,23 +9,32 @@ const Header = ({ user }) => {
     let modal = document.querySelector('.modalCriarConta')
     modal.style.display = "block"
   }
-  
+
   function fecharModalCriarConta(e) {
     e.preventDefault();
     let modal = document.querySelector('.modalCriarConta')
     modal.style.display = "none"
   }
 
-  function criarConta(e){
+  function criarConta(e) {
     e.preventDefault();
     // criar conta firebase
 
- /*    const email = document.querySelector('#email-cadastro').value
-    const nome = document.querySelector('#username-cadastro').value
+    const email = document.querySelector('#email-cadastro').value
+    const username = document.querySelector('#username-cadastro').value
     const password = document.querySelector('#senha-cadastro').value
-    
-    auth.createUserWithEmailAndPassword(email, password) */
-    
+
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        authUser.user.updateProfile({
+          displayName: username
+        })
+        alert("conta criada com sucesso!")
+        let modal = document.querySelector('.modalCriarConta')
+        modal.style.display = "none"
+      }).catch((error) =>{
+        alert(error.message)
+      })
   }
 
   return (
@@ -37,9 +46,9 @@ const Header = ({ user }) => {
           <div onClick={e => fecharModalCriarConta(e)} className="close-modal-criar">X</div>
           <h2>Criar Conta</h2>
           <form onSubmit={(e) => criarConta(e)}>
-            <input id='email-cadastro' type="email" placeholder="Seu Email..." required/>
-            <input id='username-cadastro' type="text" placeholder="Seu Nome..." required/>
-            <input id='senha-cadastro' type="password" placeholder="Sua Senha..." required/>
+            <input id='email-cadastro' type="email" placeholder="Seu Email..." required />
+            <input id='username-cadastro' type="text" placeholder="Seu Nome..." required />
+            <input id='senha-cadastro' type="password" placeholder="Sua Senha..." required />
             <input type="submit" value="Criar Conta!" />
           </form>
 
@@ -60,8 +69,8 @@ const Header = ({ user }) => {
             :
             <div className="header-loginForm">
               <form action="">
-                <input type="text" placeholder="Login..." required/>
-                <input type="password" placeholder="Senha..." required/>
+                <input type="text" placeholder="Login..." required />
+                <input type="password" placeholder="Senha..." required />
                 <input type="submit" value="Logar!" name='acao' />
               </form>
               <div className="btn_criarConta">
