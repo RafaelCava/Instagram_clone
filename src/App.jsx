@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header'
 
 function App() {
-  const [user, setUser] = useState('rafael')
+  const [user, setUser] = useState(null)
   useEffect(() => {
 
   }, [])
