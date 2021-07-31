@@ -54,6 +54,7 @@ const Header = ({ user, setUser }) => {
       .then((auth) => {
         setUser(auth.user.displayName);
         alert('logado com sucesso')
+        window.location.href = '/'
       }).catch((error) => {
         alert(error.message)
       })
@@ -98,6 +99,14 @@ const Header = ({ user, setUser }) => {
         })
     })
 
+  }
+
+  function deslogar(e) {
+    e.preventDefault()
+    auth.signOut().then(val => {
+      setUser(null)
+      window.location.href = '/'
+    })
   }
 
   return (
@@ -145,6 +154,7 @@ const Header = ({ user, setUser }) => {
             <div className='header_logadoInfo'>
               <span>Olá <b>{user}</b></span>
               <a onClick={e => abrirModalUpload(e)} href="#">Postar!</a>
+              <a onClick={e => deslogar(e)} href="#">Deslogar</a>
               {/* header_logadoInfo */}
             </div>
             :

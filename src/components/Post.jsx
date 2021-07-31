@@ -1,3 +1,5 @@
+import { db } from '../firebase'
+import { useState, useEffect } from 'react';
 function Post(props) {
 
   function comentar(id, e) {
