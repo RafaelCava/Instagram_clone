@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { auth, db } from '../firebase'
 
-const Header = ({ user }) => {
+const Header = ({ user, setUser }) => {
 
 
   function abrirModalCriarConta(e) {
@@ -37,6 +37,20 @@ const Header = ({ user }) => {
       })
   }
 
+  function logar(e){
+    e.preventDefault();
+    let email_login = document.querySelector('#email-login').value
+    let senha_login = document.querySelector('#senha-login').value
+
+    auth.signInWithEmailAndPassword(email_login, senha_login)
+    .then((auth) =>{
+      setUser(auth.user.displayName);
+      alert('logado com sucesso')
+    }).catch((error)=>{
+      alert(error.message)
+    })
+  }
+
   return (
 
 
@@ -68,9 +82,9 @@ const Header = ({ user }) => {
             </div>
             :
             <div className="header-loginForm">
-              <form action="">
-                <input type="text" placeholder="Login..." required />
-                <input type="password" placeholder="Senha..." required />
+              <form onSubmit={(e)=>logar(e)}>
+                <input id='email-login' type="email" placeholder="Login..." required />
+                <input id='senha-login' type="password" placeholder="Senha..." required />
                 <input type="submit" value="Logar!" name='acao' />
               </form>
               <div className="btn_criarConta">
