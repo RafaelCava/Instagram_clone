@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-const firebaseConfig = {
+const firebaseApp = {
   apiKey: "AIzaSyA6ERIlBmURraDMt7rL4MIQ2ZjwPP0VCg8",
   authDomain: "instagram-clone-17c8f.firebaseapp.com",
   projectId: "instagram-clone-17c8f",
@@ -8,6 +8,8 @@ const firebaseConfig = {
   appId: "1:740810410776:web:11557e28e5dd794a446c6d",
   measurementId: "G-21YHG8HTRG"
 };
+
+firebase.initializeApp(firebaseApp)
 
 const db = firebase.firestore();
 const auth = firebase.auth();
