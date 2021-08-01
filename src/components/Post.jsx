@@ -9,9 +9,11 @@ function Post(props) {
     
 
     db.collection('posts').doc(id).collection('comentarios').add({
-      nome: 'teste',
+      nome: props.user,
       comentario: comentarioAtual
     })
+
+    document.querySelector('#comentario-'+id).value = ''
   }
 
 

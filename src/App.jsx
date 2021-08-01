@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header'
 import Post from './components/Post'
 import { db, auth } from './firebase';
-// import { db } from './firebase'
 
 function App() {
   const [user, setUser] = useState()
@@ -32,7 +31,7 @@ function App() {
         posts.map(val => {
           return (
             <>
-              <Post info={val.info} id={val.id} />
+              <Post user={user} info={val.info} id={val.id} />
             </>
           )
         })
