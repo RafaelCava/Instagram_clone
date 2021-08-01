@@ -4,15 +4,23 @@ function Post(props) {
 
   function comentar(id, e) {
     e.preventDefault();
-    alert('comentando no post: ' + id)
+
+    let comentarioAtual = document.querySelector('#comentario-'+id).value
+    
+
+    db.collection('posts').doc(id).collection('comentarios').add({
+      nome: 'teste',
+      comentario: comentarioAtual
+    })
   }
+
 
   return (
     <div className="postSingle">
       <img src={props.info.image} alt="imagem-postada" />
       <p><b>{props.info.userName}</b>:{props.info.titulo}</p>
       <form onSubmit={e => comentar(props.id, e)}>
-        <textarea></textarea>
+        <textarea id={'comentario-'+props.id}></textarea>
         <input type="submit" value="Comentar" />
       </form>
     </div>
