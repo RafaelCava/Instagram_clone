@@ -4,13 +4,14 @@
  * Author: Rafael Cavalcante
  * Data de criação: 14/08/2021
  */
+
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Post from './components/Post';
 import { db, auth } from './firebase';
 
-function App() {
+const App = () => {
   const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
 
@@ -39,6 +40,6 @@ function App() {
       }
     </div>
   );
-}
+};
 
 export default App;
