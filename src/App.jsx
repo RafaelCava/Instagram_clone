@@ -1,3 +1,9 @@
+/* *
+ * Arquivo: app.jsx
+ * Descrição: Arquivos de estrutura do app e ligação com o banco de dados
+ * Author: Rafael Cavalcante
+ * Data de criação: 14/08/2021
+ */
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
