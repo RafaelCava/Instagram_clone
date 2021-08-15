@@ -1,3 +1,9 @@
+/* *
+ * Arquivo: Post.jsx
+ * Descrição: Arquivos do componente Post e sua lógica
+ * Author: Rafael Cavalcante
+ * Data de criação: 14/08/2021
+ */
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
 
