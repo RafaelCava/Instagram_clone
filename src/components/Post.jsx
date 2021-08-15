@@ -6,18 +6,23 @@
  */
 
 import { useState, useEffect } from 'react';
+import firebase from 'firebase';
 import { db } from '../firebase';
 
 const Post = (props) => {
   const [comentarios, setComentarios] = useState([]);
 
   useEffect(() => {
-    db.collection('posts').doc(props.id).collection('comentarios').onSnapshot((snapshot) => {
-      setComentarios(snapshot.docs.map((document) => ({
-        id: document.id,
-        info: document.data(),
-      })));
-    });
+    db.collection('posts')
+      .doc(props.id)
+      .collection('comentarios')
+      .orderBy('timestamp', 'asc')
+      .onSnapshot((snapshot) => {
+        setComentarios(snapshot.docs.map((document) => ({
+          id: document.id,
+          info: document.data(),
+        })));
+      });
   }, []);
 
   const comentar = (id, e) => {
@@ -28,6 +33,7 @@ const Post = (props) => {
     db.collection('posts').doc(id).collection('comentarios').add({
       nome: props.user,
       comentario: comentarioAtual,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
     document.querySelector(`#comentario-${id}`).value = '';
@@ -55,10 +61,16 @@ const Post = (props) => {
           ))
         }
       </div>
-      <form onSubmit={(e) => comentar(props.id, e)}>
-        <textarea id={`comentario-${props.id}`} />
-        <input type="submit" value="Comentar" />
-      </form>
+      {
+        (props.user)
+          ? (
+            <form onSubmit={(e) => comentar(props.id, e)}>
+              <textarea id={`comentario-${props.id}`} />
+              <input type="submit" value="Comentar" />
+            </form>
+          )
+          : <div />
+      }
     </div>
   );
 };

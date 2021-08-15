@@ -1,41 +1,41 @@
-*{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  background-color: rgb(220,220,220)
+body {
+  background-color: rgb(220, 220, 220)
 }
 
-.center{
+.center {
   display: flex;
   margin: 0 auto;
   max-width: 1100px;
   padding: 0 2%;
 }
 
-.header{
+.header {
   padding: 10px 0;
   background: #fff;
-  border-bottom: 2px solid rgb(230,230,230);
+  border-bottom: 2px solid rgb(230, 230, 230);
 }
 
-.header-logo{
+.header-logo {
   width: 50%;
 }
 
-.header-loginForm{
+.header-loginForm {
   width: 50%;
   text-align: right;
 }
 
-.header-loginForm form{
+.header-loginForm form {
   display: inline-block;
 }
 
 .header-loginForm input[type=text],
-.header-loginForm input[type=password]{
+.header-loginForm input[type=password] {
   width: 180px;
   margin-right: 5px;
   height: 20px;
@@ -43,7 +43,7 @@ body{
   padding-left: 10px;
 }
 
-.header-loginForm input[type=submit]{
+.header-loginForm input[type=submit] {
   background-color: #0095f6;
   color: white;
   border: 0;
@@ -55,21 +55,23 @@ body{
 }
 
 
-.btn_criarConta{
-  display:inline-block;
+.btn_criarConta {
+  display: inline-block;
 }
-.btn_criarConta a{
+
+.btn_criarConta a {
   font-size: 14px;
   margin: 0 10px;
 }
 
-.header_logadoInfo{
+.header_logadoInfo {
   text-align: right;
   width: 50%;
-  
+
 }
-.header_logadoInfo a{
-  margin: 0 10px;  
+
+.header_logadoInfo a {
+  margin: 0 10px;
   background-color: #0095f6;
   color: #fff;
   padding: 3px 10px;
@@ -79,23 +81,27 @@ body{
   text-decoration: none;
 }
 
+.header_logadoInfo b {
+  margin-left: 10px;
+}
+
 /* TODO trocar display none por classe none ao terminar o projeto */
-.none{
+.none {
   display: none;
 }
 
 
-.modalCriarConta{
+.modalCriarConta {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5)
+  background-color: rgba(0, 0, 0, 0.5)
 }
 
-.formCriarConta{
+.formCriarConta {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -107,7 +113,7 @@ body{
   text-align: center;
 }
 
-.formCriarConta input{
+.formCriarConta input {
   width: 100%;
   height: 30px;
   margin-bottom: 10px;
@@ -116,13 +122,13 @@ body{
   border-radius: 8px;
 }
 
-.formCriarConta input[type="submit"]{
+.formCriarConta input[type="submit"] {
   background-color: #0095f6;
   cursor: pointer;
   color: #fff;
 }
 
-.close-modal-criar{
+.close-modal-criar {
   position: absolute;
   right: -10px;
   top: -10px;
@@ -136,17 +142,17 @@ body{
   background-color: #0095f6;
 }
 
-.modalUpload{
+.modalUpload {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5)
+  background-color: rgba(0, 0, 0, 0.5)
 }
 
-.formUpload{
+.formUpload {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -158,7 +164,7 @@ body{
   text-align: center;
 }
 
-.formUpload input{
+.formUpload input {
   width: 100%;
   height: 30px;
   margin-bottom: 10px;
@@ -167,35 +173,38 @@ body{
   border-radius: 8px;
 }
 
-.formUpload input[type="submit"]{
+.formUpload input[type="submit"] {
   background-color: #0095f6;
   cursor: pointer;
   color: #fff;
 }
 
-.postSingle{
+.postSingle {
   background-color: #fff;
   max-width: 700px;
   margin: 10px auto;
 }
 
-.postSingle img{
-  width:100%;
+.postSingle img {
+  width: 100%;
 }
 
-.postSingle p{
+.postSingle p {
   padding: 10px;
 }
 
-.postSingle form{padding:20px}
-.postSingle textarea{
+.postSingle form {
+  padding: 20px
+}
+
+.postSingle textarea {
   width: 100%;
   height: 120px;
   border: 1px solid #ccc;
   padding: 10px;
 }
 
-.postSingle input[type="submit"]{
+.postSingle input[type="submit"] {
   background-color: #0095f6;
   cursor: pointer;
   color: #fff;
