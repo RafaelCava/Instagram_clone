@@ -7,7 +7,7 @@
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
 
-function Post(props) {
+const Post = (props) => {
   const [comentarios, setComentarios] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Post(props) {
     });
   }, []);
 
-  function comentar(id, e) {
+  const comentar = (id, e) => {
     e.preventDefault();
 
     const comentarioAtual = document.querySelector(`#comentario-${id}`).value;
@@ -30,7 +30,7 @@ function Post(props) {
     });
 
     document.querySelector(`#comentario-${id}`).value = '';
-  }
+  };
 
   return (
     <div className="postSingle">
@@ -60,6 +60,6 @@ function Post(props) {
       </form>
     </div>
   );
-}
+};
 
 export default Post;
