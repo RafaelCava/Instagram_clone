@@ -19,8 +19,7 @@ const Header = ({ user, setUser }) => {
     modal.style.display = 'none';
   }
 
-  // criar conta firebase
-  function criarConta(e) {
+  const criarConta = (e) => {
     e.preventDefault();
 
     const email = document.querySelector('#email-cadastro').value;
@@ -38,9 +37,9 @@ const Header = ({ user, setUser }) => {
       }).catch((error) => {
         alert(error.message);
       });
-  }
+  };
 
-  function logar(e) {
+  const logar = (e) => {
     e.preventDefault();
     const email_login = document.querySelector('#email-login').value;
     const senha_login = document.querySelector('#senha-login').value;
@@ -53,7 +52,7 @@ const Header = ({ user, setUser }) => {
       }).catch((error) => {
         alert(error.message);
       });
-  }
+  };
 
   function abrirModalUpload(e) {
     e.preventDefault();
