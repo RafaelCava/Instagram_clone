@@ -13,17 +13,17 @@ const Header = ({ user, setUser }) => {
 
   const [file, setFile] = useState(null);
 
-  function abrirModalCriarConta(e) {
+  const abrirModalCriarConta = (e) => {
     e.preventDefault();
     const modal = document.querySelector('.modalCriarConta');
     modal.style.display = 'block';
-  }
+  };
 
-  function fecharModalCriarConta(e) {
+  const fecharModalCriarConta = (e) => {
     e.preventDefault();
     const modal = document.querySelector('.modalCriarConta');
     modal.style.display = 'none';
-  }
+  };
 
   const criarConta = (e) => {
     e.preventDefault();
@@ -60,19 +60,19 @@ const Header = ({ user, setUser }) => {
       });
   };
 
-  function abrirModalUpload(e) {
+  const abrirModalUpload = (e) => {
     e.preventDefault();
     const modal = document.querySelector('.modalUpload');
     modal.style.display = 'block';
-  }
+  };
 
-  function fecharModalUpload(e) {
+  const fecharModalUpload = (e) => {
     e.preventDefault();
     const modal = document.querySelector('.modalUpload');
     modal.style.display = 'none';
-  }
+  };
 
-  function uploadPost(e) {
+  const uploadPost = (e) => {
     e.preventDefault();
     const tituloPost = document.querySelector('#titulo-upload').value;
 
@@ -98,15 +98,15 @@ const Header = ({ user, setUser }) => {
           document.getElementById('form-upload').reset();
         });
     });
-  }
+  };
 
-  function deslogar(e) {
+  const deslogar = (e) => {
     e.preventDefault();
     auth.signOut().then((_val) => {
       setUser(null);
       window.location.href = '/';
     });
-  }
+  };
 
   return (
 
