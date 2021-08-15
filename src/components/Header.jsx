@@ -1,3 +1,9 @@
+/* *
+ * Arquivo: Header.jsx
+ * Descrição: Arquivos do componente Header e toda sua lógica
+ * Author: Rafael Cavalcante
+ * Data de criação: 14/08/2021
+ */
 import { useState } from 'react';
 import firebase from 'firebase';
 import { auth, db, storage } from '../firebase';
