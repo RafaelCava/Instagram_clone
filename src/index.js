@@ -1,4 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
+/* *
+ * Arquivo: index.js
+ * Descrição:
+ * Author: Rafael Cavalcante
+ * Data de criação: 14/08/2021
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
