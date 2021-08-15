@@ -31,16 +31,20 @@ body {
 }
 
 .header-loginForm form {
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.header-loginForm input[type=text],
+.header-loginForm input[type=email],
 .header-loginForm input[type=password] {
   width: 180px;
   margin-right: 5px;
   height: 20px;
   border: 1px solid #ccc;
-  padding-left: 10px;
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .header-loginForm input[type=submit] {
@@ -65,9 +69,9 @@ body {
 }
 
 .header_logadoInfo {
-  text-align: right;
-  width: 50%;
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .header_logadoInfo a {
@@ -210,4 +214,18 @@ body {
   color: #fff;
   border: 0;
   padding: 8px 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .header-loginForm input {
+    margin-bottom: 10px;
+  }
+
+  .header_logadoInfo {
+    flex-direction: column;
+  }
+
+  .header_logadoInfo a {
+    margin: 10px 0;
+  }
 }
