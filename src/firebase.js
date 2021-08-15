@@ -1,3 +1,9 @@
+/* *
+ * Arquivo: firebase.js
+ * Descrição: Arquivos do firebase
+ * Author: Rafael Cavalcante
+ * Data de criação: 14/08/2021
+ */
 import firebase from 'firebase';
 
 const firebaseApp = {
