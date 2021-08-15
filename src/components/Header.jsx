@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-expressions */
 /* *
  * Arquivo: Header.jsx
  * Descrição: Arquivos do componente Header e toda sua lógica
@@ -82,8 +84,8 @@ const Header = ({ user, setUser }) => {
     uploadTask.on('state_changed', (snapshot) => {
       const progress = Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       setProgress(progress);
-    }, (_error) => {
-
+    }, (error) => {
+      error ? console.error(error) : null;
     }, () => {
       storage.ref('images').child(file.name).getDownloadURL()
         .then((url) => {
